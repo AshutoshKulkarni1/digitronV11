@@ -13,10 +13,11 @@
   box-shadow: 0 2px 12px rgba(11, 31, 58, 0.05);
 }
 
-/* Tier 1: Dark Navy Announcement Marquee */
+/* Tier 1: Dark Obsidian Announcement Marquee */
 .nav-announcement-top {
   height: 42px;
-  background: var(--color-navy);
+  background: var(--color-black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--color-white);
   overflow: hidden;
   display: flex;

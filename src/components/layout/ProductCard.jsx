@@ -145,10 +145,11 @@ export default function ProductCard({
           <StatusLabel text={product.stock || "Out of Stock"} />
         </div>
 
-        {/* Price + Button row */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', marginTop: 'auto', width: '100%' }}>
-          <span className="price-style" style={{ fontSize: '16px', fontWeight: 800 }}>
-            {priceLabel}
+        {/* Quote on Request + Action Button row */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', marginTop: 'auto', width: '100%', paddingTop: '6px' }}>
+          <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--color-navy)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'var(--brand)' }}></span>
+            Quote on Request
           </span>
           {onAddToCart ? (
             <Button 

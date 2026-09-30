@@ -25,6 +25,13 @@
   --color-slate-light: #8FA3BD;
   --color-slate-pale: #B7CBE4;
 
+  /* SLEEK OBSIDIAN & BLACK ACCENTS (Less Monotonous Design) */
+  --color-black: #080B10;
+  --color-black-pure: #000000;
+  --color-black-card: #0D1117;
+  --color-black-elevated: #161B22;
+  --color-black-border: rgba(255, 255, 255, 0.12);
+
   --color-red: #E5484D;
   --color-red-hover: #CC3E43;
   --color-whatsapp: #25D366;

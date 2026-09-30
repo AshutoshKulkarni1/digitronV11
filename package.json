@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run && npm run test:backend",
-    "test:backend": "node backend/tests/admin.test.js"
+    "test:backend": "node backend/tests/admin.test.js && node backend/tests/security.test.js",
+    "generate:secrets": "node backend/utils/generateSecrets.js"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.19",

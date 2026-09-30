@@ -44,8 +44,9 @@ Use this checklist to verify everything is working before handing the project to
 
 ### Security
 - [ ] `.env` file NOT committed to Git (check `.gitignore`)
-- [ ] Session secret changed to a long random string (not default)
-- [ ] Admin password changed from any demo/test value
+- [ ] `JWT_SECRET` changed to a long unique random string (min 32 chars)
+- [ ] `SESSION_SECRET` changed to a long random string (not default)
+- [ ] Admin password changed from any demo/test value (generate with `npm run generate:secrets`)
 - [ ] MongoDB credentials not exposed in any public file
 
 ---

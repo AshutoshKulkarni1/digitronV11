@@ -7,7 +7,8 @@
     "start": "node server.js",
     "prisma:generate": "prisma generate --schema=prisma/schema.prisma",
     "seed": "node seed.js",
-    "test": "node tests/admin.test.js"
+    "test": "node tests/admin.test.js && node tests/security.test.js",
+    "generate:secrets": "node utils/generateSecrets.js"
   },
   "keywords": [],
   "author": "",

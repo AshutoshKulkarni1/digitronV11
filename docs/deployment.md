@@ -84,7 +84,8 @@ MONGODB_URI="mongodb+srv://USERNAME:PASSWORD@cluster.mongodb.net/digitron?retryW
 EMAIL_USER="your-gmail@gmail.com"
 EMAIL_PASS="your-app-password"    # 16-char Gmail App Password (NOT your normal Gmail password)
 
-# Sessions
+# Authentication & Sessions
+JWT_SECRET="replace-with-long-random-string-min-32-chars"
 SESSION_SECRET="replace-with-long-random-string-min-32-chars"
 SESSION_STORE="mongo"
 PORT=5000
@@ -101,6 +102,11 @@ GOOGLE_CALLBACK_URL="https://your-vercel-deployment.vercel.app/api/auth/google/c
 ADMIN_USERNAME="admin"
 ADMIN_PASSWORD_HASH="$2b$10$..."   # bcrypt hash of admin password (see below)
 ```
+
+> **Tip:** You can generate high-entropy secrets and admin password hashes automatically with:
+> ```bash
+> npm run generate:secrets "YOUR_ADMIN_PASSWORD"
+> ```
 
 ### Generate Admin Password Hash
 
@@ -211,7 +217,8 @@ In Vercel Dashboard → Your Project → **Settings → Environment Variables**,
 | `MONGODB_URI` | Your Atlas connection string |
 | `EMAIL_USER` | Gmail address |
 | `EMAIL_PASS` | Gmail App Password |
-| `SESSION_SECRET` | Long random string |
+| `JWT_SECRET` | Long random string (min 32 chars) |
+| `SESSION_SECRET` | Long random string (min 32 chars) |
 | `SESSION_STORE` | `mongo` |
 | `FRONTEND_URL` | `https://your-project.vercel.app` |
 | `GOOGLE_CLIENT_ID` | From Google Cloud Console |

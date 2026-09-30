@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken');
 const rateLimit = require('express-rate-limit');
-
-const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+const { getJwtSecret } = require('../config/env');
 
 const authenticateAdmin = (req, res, next) => {
   const token = req.cookies?.ae_admin_token;
   if (!token) return res.status(401).json({ error: 'Unauthorized' });
-  jwt.verify(token, JWT_SECRET, (err, decoded) => {
+  jwt.verify(token, getJwtSecret(), (err, decoded) => {
     if (err) return res.status(403).json({ error: 'Invalid token' });
     req.admin = decoded;
     next();

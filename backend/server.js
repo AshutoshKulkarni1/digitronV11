@@ -29,6 +29,14 @@ process.on('uncaughtException', (err) => {
 
 const { prisma, initializePersistence, isPlaceholderMongoUri } = require('./config/state');
 const { logRouteError, withTimeout } = require('./utils/helpers');
+const {
+  PORT,
+  IS_PRODUCTION,
+  getSessionSecret,
+  getAllowedOrigins,
+  getGoogleOAuthConfig,
+  auditSecurityConfig
+} = require('./config/env');
 
 // Import routers
 const authRouter = require('./routes/auth.routes');
@@ -41,23 +49,30 @@ const productsRouter = require('./routes/products.routes');
 const app = express();
 app.set('trust proxy', 1);
 
-const PORT = process.env.PORT || 5000;
-const rawFrontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
-const allowedOrigins = rawFrontendUrl.split(',').map(s => s.trim()).filter(Boolean);
-if (!allowedOrigins.includes('http://localhost:5173')) {
-  allowedOrigins.push('http://localhost:5173');
-}
+const allowedOrigins = getAllowedOrigins();
+const googleOAuthConfig = getGoogleOAuthConfig();
+const GOOGLE_AUTH_CONFIGURED = googleOAuthConfig.isConfigured;
 
 const SESSION_MONGO_URL = process.env.MONGODB_URI || process.env.DATABASE_URL;
-const GOOGLE_AUTH_CONFIGURED = Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET);
 const USE_MONGO_SESSION_STORE = Boolean(SESSION_MONGO_URL && !isPlaceholderMongoUri(SESSION_MONGO_URL));
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+    // Allow non-browser requests (server-to-server, curl, tests)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
       return callback(null, true);
     }
-    return callback(null, true); // Permissive fallback for seamless client preview
+
+    if (!IS_PRODUCTION) {
+      // In development, permit localhost ports and 127.0.0.1
+      if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+        return callback(null, true);
+      }
+    }
+
+    return callback(new Error(`Origin ${origin} not allowed by CORS`));
   },
   credentials: true
 }));
@@ -73,16 +88,15 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(cookieParser());
 
-const isProduction = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
 const sessionConfig = {
-  secret: process.env.SESSION_SECRET || 'digitron-session-secret',
+  secret: getSessionSecret(),
   resave: false,
   saveUninitialized: false,
   proxy: true,
   cookie: {
     maxAge: 30 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    secure: isProduction,
+    secure: IS_PRODUCTION,
     sameSite: 'lax',
     path: '/'
   }
@@ -161,9 +175,8 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-logger.info('--- Server Configuration ---');
-logger.info('Email User:', process.env.EMAIL_USER ? 'Configured' : 'Missing');
-logger.info('Email Pass:', process.env.EMAIL_PASS ? 'Configured' : 'Missing');
+// Audit and display secure environment configuration
+auditSecurityConfig();
 
 // Run initialization in the background
 initializePersistence();

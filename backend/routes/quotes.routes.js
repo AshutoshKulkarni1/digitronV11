@@ -3,6 +3,7 @@ const { z } = require('zod');
 const nodemailer = require('nodemailer');
 const { prisma } = require('../config/state');
 const { validate } = require('../middleware/validation.middleware');
+const { getEmailConfig, getPrimaryFrontendUrl } = require('../config/env');
 const logger = require('../utils/logger');
 
 const router = express.Router();
@@ -51,13 +52,14 @@ router.post('/', validate(quotesSchema), async (req, res) => {
       data: { customerName, customerPhone, items }
     });
     
-    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-      logger.info('Attempting to send email to:', process.env.EMAIL_USER);
+    const emailConfig = getEmailConfig();
+    if (emailConfig.isConfigured) {
+      logger.info('Sending quote notification email to store owner');
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: { 
-          user: process.env.EMAIL_USER, 
-          pass: process.env.EMAIL_PASS.replace(/\s+/g, '') // Remove any spaces in app password
+          user: emailConfig.user, 
+          pass: emailConfig.pass
         }
       });
       const itemsList = Array.isArray(items) ? items.map(i => {
@@ -65,18 +67,19 @@ router.post('/', validate(quotesSchema), async (req, res) => {
         const email = i.customerEmail ? `\n  Email: ${i.customerEmail}` : '';
         return `- ${i.name} (Qty: ${i.qty || 1})${email}${note ? `\n  Customer wrote: ${note}` : ''}`;
       }).join('\n') : JSON.stringify(items);
+      const adminUrl = `${getPrimaryFrontendUrl()}/admin`;
       const mailOptions = {
-        from: `"Digitron Associates" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_USER,
+        from: `"Digitron Associates" <${emailConfig.user}>`,
+        to: emailConfig.user,
         subject: `New Quote Request from ${customerName}`,
-        text: `Customer Name: ${customerName}\nPhone: ${customerPhone}\n\nItems Requested:\n${itemsList}\n\nView in Admin Panel: http://localhost:5174/admin`
+        text: `Customer Name: ${customerName}\nPhone: ${customerPhone}\n\nItems Requested:\n${itemsList}\n\nView in Admin Panel: ${adminUrl}`
       };
-      transporter.sendMail(mailOptions, (err, info) => {
-        if (err) logger.error('Email Delivery Error:', err);
-        else logger.info('Email Sent Successfully:', info.response);
+      transporter.sendMail(mailOptions, (err) => {
+        if (err) logger.error('Email Delivery Error:', err?.message || err);
+        else logger.info('Email Sent Successfully');
       });
     } else {
-      logger.warn('Email credentials missing in .env');
+      logger.info('Email service unconfigured in .env; saved quote to database.');
     }
     
     res.json({ success: true, quoteId: quote.id });

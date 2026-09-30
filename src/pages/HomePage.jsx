@@ -14,10 +14,8 @@ const BESTSELLERS = [
     img: "/productImages/multi-power-solar.png",
     bg: "#EAF3FD",
     tag: "SOLAR 4G",
-    tagBg: "#0B1F3A",
+    tagBg: "#080B10",
     rev: "75+",
-    price: 6999,
-    mrp: 9499,
     type: "Home",
     types: ["Home", "Outdoor", "Shop"],
   },
@@ -28,10 +26,8 @@ const BESTSELLERS = [
     img: "/productImages/cp-plus-square.png",
     bg: "#D6E8FB",
     tag: "BESTSELLER",
-    tagBg: "#0B1F3A",
+    tagBg: "#080B10",
     rev: "98+",
-    price: 2199,
-    mrp: 2999,
     type: "Shop",
     types: ["Shop", "Outdoor", "Home"],
   },
@@ -42,10 +38,8 @@ const BESTSELLERS = [
     img: "/productImages/cp-plus-round.png",
     bg: "#EAF3FD",
     tag: "VALUE",
-    tagBg: "#0B1F3A",
+    tagBg: "#080B10",
     rev: "140+",
-    price: 1899,
-    mrp: 2499,
     type: "Home",
     types: ["Home", "Shop", "Office"],
   },
@@ -56,10 +50,8 @@ const BESTSELLERS = [
     img: "/productImages/ezykam-plus-square.png",
     bg: "#D6E8FB",
     tag: "FULL COLOR",
-    tagBg: "#E5484D",
+    tagBg: "#080B10",
     rev: "84+",
-    price: 3299,
-    mrp: 4500,
     type: "Home",
     types: ["Home", "Shop", "Outdoor"],
   },
@@ -70,10 +62,8 @@ const BESTSELLERS = [
     img: "/productImages/ezykam-plus.png",
     bg: "#EAF3FD",
     tag: "SMART WI-FI",
-    tagBg: "#1A6FD6",
+    tagBg: "#080B10",
     rev: "116+",
-    price: 2499,
-    mrp: 3499,
     type: "Home",
     types: ["Home", "Shop", "Office"],
   },
@@ -84,10 +74,8 @@ const BESTSELLERS = [
     img: "/productImages/trueview-round.png",
     bg: "#EAF3FD",
     tag: "DUAL LIGHT",
-    tagBg: "#0B1F3A",
+    tagBg: "#080B10",
     rev: "165+",
-    price: 2350,
-    mrp: 3200,
     type: "Office",
     types: ["Office", "Shop", "Home"],
   },
@@ -98,10 +86,8 @@ const BESTSELLERS = [
     img: "/productImages/secureeye.png",
     bg: "#D6E8FB",
     tag: "DUAL LENS",
-    tagBg: "#0B1F3A",
+    tagBg: "#080B10",
     rev: "92+",
-    price: 4999,
-    mrp: 6999,
     type: "Shop",
     types: ["Shop", "Office", "Outdoor"],
   },
@@ -112,10 +98,8 @@ const BESTSELLERS = [
     img: "/productImages/500gb-wd.png",
     bg: "#D6E8FB",
     tag: "STORAGE",
-    tagBg: "#1A6FD6",
+    tagBg: "#080B10",
     rev: "210+",
-    price: 1799,
-    mrp: 2499,
     type: "Office",
     types: ["Office", "Shop", "Home"],
   },
@@ -126,10 +110,8 @@ const BESTSELLERS = [
     img: "/productImages/securus-switch.png",
     bg: "#EAF3FD",
     tag: "POE SWITCH",
-    tagBg: "#0B1F3A",
+    tagBg: "#080B10",
     rev: "54+",
-    price: 2899,
-    mrp: 3999,
     type: "Office",
     types: ["Office", "Shop", "Home"],
   },
@@ -140,10 +122,8 @@ const BESTSELLERS = [
     img: "/productImages/securus-cables.png",
     bg: "#D6E8FB",
     tag: "PURE COPPER",
-    tagBg: "#0B1F3A",
+    tagBg: "#080B10",
     rev: "88+",
-    price: 6499,
-    mrp: 8500,
     type: "Office",
     types: ["Office", "Shop"],
   },
@@ -154,10 +134,8 @@ const BESTSELLERS = [
     img: "/productImages/voltaic.png",
     bg: "#EAF3FD",
     tag: "ENCLOSURE",
-    tagBg: "#1A6FD6",
+    tagBg: "#080B10",
     rev: "68+",
-    price: 1250,
-    mrp: 1750,
     type: "Shop",
     types: ["Shop", "Home", "Office"],
   },
@@ -266,19 +244,19 @@ export default function HomePage() {
       a: "Yes! We service, repair, expand, and upgrade older CCTV setups even if they were installed by another vendor.",
     },
     {
-      q: "How long does installation take?",
-      a: "Most home and small shop installations (2 to 4 cameras) are completed on the same day within 4 to 6 hours.",
+      q: "How is installation scheduled and handled?",
+      a: "Our certified technicians coordinate a convenient time slot with you, run clean concealed cabling, calibrate optimal camera angles, and configure the mobile app before handover.",
     },
   ];
 
   // Reviews dual-marquee rows
   const reviewsRowA = [
-    { q: "Installed 4 cameras at our house in one day. Neat wiring and the app works seamlessly.", n: "Ramesh Kulkarni", p: "Dharwad", i: "R", bg: "#EAF3FD" },
+    { q: "Installed 4 cameras at our house. Neat concealed wiring and the app works seamlessly.", n: "Ramesh Kulkarni", p: "Dharwad", i: "R", bg: "#EAF3FD" },
     { q: "Very professional team. They recommended the exact right angles for our retail shop.", n: "Sunil Patil", p: "Hubballi", i: "S", bg: "#D6E8FB" },
     { q: "Night footage is remarkably clear. Got an alert the moment a delivery arrived at the gate.", n: "Anand Joshi", p: "Dharwad", i: "A", bg: "#EAF3FD" },
     { q: "Fair price and prompt service when one cable needed re-clamping. Highly recommended!", n: "Mahesh Desai", p: "Hubballi", i: "M", bg: "#D6E8FB" },
     { q: "Equipped our entire two-floor office with 8 cameras. Neat conduits, zero mess.", n: "Kiran Shettar", p: "Dharwad", i: "K", bg: "#EAF3FD" },
-    { q: "Installed 4 cameras at our house in one day. Neat wiring and the app works seamlessly.", n: "Ramesh Kulkarni", p: "Dharwad", i: "R", bg: "#EAF3FD" },
+    { q: "Installed 4 cameras at our house. Neat concealed wiring and the app works seamlessly.", n: "Ramesh Kulkarni", p: "Dharwad", i: "R", bg: "#EAF3FD" },
   ];
 
   const reviewsRowB = [
@@ -293,13 +271,13 @@ export default function HomePage() {
   const handleLeadSubmit = (e) => {
     e.preventDefault();
     if (!leadPhone.trim()) return;
-    const msg = `Hi Digitron Associates, I would like to claim the special discount offer for CCTV installation for my property. My contact: +91 ${leadPhone}`;
+    const msg = `Hi Digitron Associates, I would like to request an installation quote for my property. My contact: +91 ${leadPhone}`;
     window.open(`https://wa.me/917975782567?text=${encodeURIComponent(msg)}`, "_blank");
     setLeadSubmitted(true);
   };
 
   const handleGetKit = (kit) => {
-    const msg = `Hi Digitron Associates, I am interested in the ${kit.n}-Camera ${kit.label} Kit (₹${kit.price.toLocaleString("en-IN")}) with Free Installation. Please share details.`;
+    const msg = `Hi Digitron Associates, I am interested in the ${kit.n}-Camera ${kit.label} Kit with Professional Site Installation. Please share quotation details.`;
     window.open(`https://wa.me/917975782567?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -372,8 +350,8 @@ export default function HomePage() {
               <span className="hero-stat-desc">Recording</span>
             </div>
             <div className="hero-stat-col">
-              <span className="hero-stat-val h">1 day</span>
-              <span className="hero-stat-desc">Typical install</span>
+              <span className="hero-stat-val h">Expert</span>
+              <span className="hero-stat-desc">Concealed Wiring</span>
             </div>
             <div className="hero-stat-col">
               <span className="hero-stat-val h">1 yr</span>
@@ -414,26 +392,26 @@ export default function HomePage() {
               <defs>
                 <path id="hero-ring" d="M85 85m-66 0a66 66 0 1 1 132 0a66 66 0 1 1-132 0" />
               </defs>
-              <circle cx="85" cy="85" r="84" fill="#0B1F3A" />
+              <circle cx="85" cy="85" r="84" fill="#080B10" />
               <text fontFamily="DM Sans, sans-serif" fontSize="13" fontWeight="700" letterSpacing="3" fill="#FFFFFF">
                 <textPath href="#hero-ring">FREE INSTALLATION • FREE INSTALLATION • </textPath>
               </text>
             </svg>
-            <div className="hero-seal-badge-inner">
-              <span className="h" style={{ fontSize: 26, fontWeight: 800, color: "#E5484D", lineHeight: 1 }}>
-                30%
+            <div className="hero-seal-badge-inner" style={{ background: "#FFFFFF" }}>
+              <span className="h" style={{ fontSize: 24, fontWeight: 800, color: "var(--brand)", lineHeight: 1 }}>
+                BEST
               </span>
-              <span style={{ fontSize: 11, fontWeight: 700, color: "#0B1F3A" }}>OFF KITS</span>
+              <span style={{ fontSize: 10.5, fontWeight: 800, color: "#080B10", letterSpacing: "0.06em" }}>VALUE</span>
             </div>
           </div>
 
-          {/* Floating Live Night Vision Radar Badge */}
-          <div className="hero-radar-badge pop fl3">
+          {/* Floating Live Night Vision Radar Badge in sleek obsidian black */}
+          <div className="hero-radar-badge pop fl3" style={{ background: "#080B10", border: "1px solid rgba(255, 255, 255, 0.16)", boxShadow: "0 12px 30px rgba(0, 0, 0, 0.35)" }}>
             <div className="radar-dot">
-              <span className="ping" style={{ background: "#E5484D" }} />
-              <span className="radar-dot-core" />
+              <span className="ping" style={{ background: "#10B981" }} />
+              <span className="radar-dot-core" style={{ background: "#10B981" }} />
             </div>
-            <span style={{ fontSize: 14, fontWeight: 700, color: "#0B1F3A" }}>Live · Colour night vision</span>
+            <span style={{ fontSize: 13.5, fontWeight: 700, color: "#FFFFFF" }}>Live · Full Color Night Vision</span>
           </div>
         </div>
       </section>
@@ -473,7 +451,7 @@ export default function HomePage() {
       <section id="shop" className="category-section-wrap">
         <div className="section-head-split">
           <div>
-            <span style={{ fontSize: 13, fontWeight: 800, color: "var(--brand)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+            <span style={{ display: "inline-block", background: "#080B10", color: "#FFFFFF", padding: "5px 14px", borderRadius: "999px", fontSize: 12, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>
               ALL-IN-ONE SURVEILLANCE CATALOG
             </span>
             <h2 className="section-h2-large h" style={{ marginTop: 4 }}>Shop by category</h2>
@@ -664,10 +642,14 @@ export default function HomePage() {
                   </span>
                   <h3 className="bestseller-title h">{p.name}</h3>
                   <span className="bestseller-spec">{p.spec}</span>
-                  <div className="bestseller-prices">
-                    <span className="bestseller-curr-price h">₹{p.price.toLocaleString("en-IN")}</span>
-                    <span className="bestseller-mrp">₹{p.mrp.toLocaleString("en-IN")}</span>
-                    <span className="bestseller-discount">{discountPct}% off</span>
+                  <div className="bestseller-action-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: 10 }}>
+                    <span className="bestseller-quote-badge" style={{ fontSize: 12.5, fontWeight: 700, color: "#080B10", display: "inline-flex", alignItems: "center", gap: 6, background: "var(--color-ice)", padding: "5px 12px", borderRadius: 999 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "var(--brand)" }}></span>
+                      Quote on Request
+                    </span>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "var(--brand)", display: "inline-flex", alignItems: "center", gap: 4 }}>
+                      Details →
+                    </span>
                   </div>
                 </div>
               </article>
@@ -686,8 +668,8 @@ export default function HomePage() {
         <div className="festive-deal-content">
           <span className="festive-deal-tag">LIMITED-TIME FESTIVE DEAL</span>
           <h2 className="festive-deal-h2 h">Complete 4-camera home kit.</h2>
-          <p style={{ margin: 0, fontSize: 20, lineHeight: 1.5, color: "#DDEBFC" }}>
-            4 HD cameras + DVR + hard disk + cabling + installation + app setup. Starting at <strong style={{ color: "#FFFFFF" }}>₹19,999</strong>.
+          <p style={{ margin: 0, fontSize: 19, lineHeight: 1.55, color: "#DDEBFC" }}>
+            4 HD cameras + DVR recorder + hard disk + cabling + professional installation + mobile app setup. All-inclusive customized package.
           </p>
 
           <div className="festive-countdown-row">
@@ -703,8 +685,8 @@ export default function HomePage() {
               <span className="countdown-digit h">{seconds}</span>
               <span className="countdown-label">SEC</span>
             </div>
-            <span style={{ fontSize: 15, fontWeight: 600, color: "#DDEBFC", paddingLeft: 8, lineHeight: 1.3 }}>
-              left at<br />this price
+            <span style={{ fontSize: 14.5, fontWeight: 600, color: "#DDEBFC", paddingLeft: 8, lineHeight: 1.35 }}>
+              left for<br />this offer
             </span>
           </div>
 
@@ -811,17 +793,17 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Card 3: Installed in a day */}
+          {/* Card 3: Certified Installation (Obsidian Black Accent Stage) */}
           <div className="vp-card vp">
-            <div className="vp-stage-wrap" style={{ background: "var(--brand)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div className="vp-stage-wrap" style={{ background: "#080B10", border: "1px solid rgba(255, 255, 255, 0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <img src="/assets/cctv-ptz.svg" alt="PTZ speed dome" className="fl" style={{ width: 330, height: 330 }} />
-              <span className="h" style={{ position: "absolute", left: 26, bottom: 22, fontSize: 64, fontWeight: 800, color: "#FFFFFF", lineHeight: 1 }}>
-                1 day.
+              <span className="h" style={{ position: "absolute", left: 26, bottom: 22, fontSize: 56, fontWeight: 800, color: "#FFFFFF", lineHeight: 1 }}>
+                Clean.
               </span>
             </div>
-            <h3 className="h" style={{ margin: 0, fontSize: 30, fontWeight: 800 }}>Installed in a day</h3>
+            <h3 className="h" style={{ margin: 0, fontSize: 30, fontWeight: 800 }}>Certified Installation</h3>
             <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "var(--color-slate)" }}>
-              Neat concealed cabling, verified camera angles and complete walkthrough — most homes and shops are done same day.
+              Neat concealed cabling, verified camera angles and complete walkthrough — carried out cleanly by certified local technicians.
             </p>
           </div>
         </div>
@@ -1045,19 +1027,18 @@ export default function HomePage() {
                 justifyContent: "space-between",
                 padding: "0 30px",
                 borderRadius: 999,
-                background: "var(--brand)",
+                background: "#080B10",
                 color: "#FFFFFF",
-                fontSize: 18,
+                fontSize: 17,
                 fontWeight: 800,
-                border: 0,
+                border: "1px solid rgba(255, 255, 255, 0.16)",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.28)",
+                cursor: "pointer",
               }}
             >
-              <span>Get this kit</span>
-              <span>
-                ₹{currentKit.price.toLocaleString("en-IN")}{" "}
-                <span style={{ fontSize: 14, fontWeight: 500, textDecoration: "line-through", color: "#BFD9F7" }}>
-                  ₹{currentKit.mrp.toLocaleString("en-IN")}
-                </span>
+              <span>Request Kit Quotation</span>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "#E0EEFD" }}>
+                Free Site Survey Included →
               </span>
             </button>
           </div>

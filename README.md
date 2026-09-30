@@ -84,10 +84,9 @@ curl http://localhost:5000/api/health
 | Username | `admin` |
 | Password | See `backend/.env` → `ADMIN_PASSWORD_HASH` |
 
-To generate a new password hash:
+To generate a new password hash or random cryptographic secrets:
 ```bash
-cd backend
-node -e "const bcrypt=require('bcrypt'); bcrypt.hash('YOUR_PASSWORD',10).then(h=>console.log(h));"
+npm run generate:secrets "YOUR_PASSWORD"
 ```
 
 ---

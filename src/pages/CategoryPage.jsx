@@ -159,12 +159,10 @@ export default function CategoryPage({ compareList, setCompareList, showToast })
     });
 
     // 2. Sorting
-    if (sortBy === "price-low") {
-      result.sort((a, b) => (a.price || 0) - (b.price || 0));
-    } else if (sortBy === "price-high") {
-      result.sort((a, b) => (b.price || 0) - (a.price || 0));
-    } else if (sortBy === "rating") {
+    if (sortBy === "rating") {
       result.sort((a, b) => (b.avg_rating || 0) - (a.avg_rating || 0));
+    } else if (sortBy === "name-asc") {
+      result.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
     }
 
     return result;
@@ -287,9 +285,8 @@ export default function CategoryPage({ compareList, setCompareList, showToast })
                 style={{ margin: 0 }}
               >
                 <option value="default">Default Sorting</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
                 <option value="rating">Highest Rated</option>
+                <option value="name-asc">Name: A to Z</option>
               </Select>
             </div>
           </div>

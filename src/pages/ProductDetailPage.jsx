@@ -273,7 +273,7 @@ export default function ProductDetailPage({ compareList, setCompareList, showToa
   };
 
   const matchingBundles = bundles.filter((b) => b.best_for.some((bf) => product.best_for.includes(bf)));
-  const priceLabel = product.price > 0 ? `Rs. ${product.price.toLocaleString("en-IN")}` : "Price on request";
+  const priceLabel = "Price on request";
   
   const overviewSpecs = {
     Brand: product.brand,
@@ -290,7 +290,7 @@ export default function ProductDetailPage({ compareList, setCompareList, showToa
     Barcode: product.barcode || "-",
     GST: product.gst || "-",
     "Stock Quantity": product.stock_qty ?? "-",
-    MRP: priceLabel,
+    Pricing: "Official Quote on Request",
   };
   const activeSpecs = activeSpecTab === "overview" ? overviewSpecs : activeSpecTab === "inventory" ? inventorySpecs : (product.specs || { "Note": "Detailed specifications not available for this model yet." });
 
@@ -410,8 +410,14 @@ export default function ProductDetailPage({ compareList, setCompareList, showToa
               ))}
             </div>
 
-            <div className="price-style" style={{ fontSize: '24px', marginBottom: '16px' }}>
-              {priceLabel}
+            {/* Pricing status indicator badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px', flexWrap: 'wrap' }}>
+              <span style={{ padding: '6px 14px', borderRadius: '999px', background: '#080B10', color: '#FFFFFF', fontSize: '13px', fontWeight: 800, letterSpacing: '0.05em', border: '1px solid rgba(255, 255, 255, 0.15)' }}>
+                PRICE ON REQUEST
+              </span>
+              <span style={{ fontSize: '13px', color: 'var(--color-slate)', fontWeight: 500 }}>
+                Includes Warranty & Local Installation Quote
+              </span>
             </div>
 
             {/* Truncated Product description */}
@@ -600,7 +606,7 @@ export default function ProductDetailPage({ compareList, setCompareList, showToa
                 <Card key={b.id} style={{ padding: '20px', flex: 1, minWidth: '260px' }}>
                   <div className="h3-style" style={{ fontSize: '15px', marginBottom: '4px' }}>{b.name}</div>
                   <div className="meta-style" style={{ marginBottom: '12px' }}>{b.components.length} components included</div>
-                  <div className="price-style" style={{ fontSize: '20px', marginBottom: '16px' }}>₹{b.total_price.toLocaleString("en-IN")}</div>
+                  <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-navy)', marginBottom: '16px' }}>Package Quote on Request</div>
                   <Button 
                     variant="secondary"
                     onClick={() => window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=Hi, I'm interested in the package: ${b.name}`, "_blank")}
@@ -860,8 +866,8 @@ export default function ProductDetailPage({ compareList, setCompareList, showToa
           boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.08)'
         }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span className="meta-style" style={{ fontSize: '10px', textTransform: 'uppercase' }}>Price</span>
-            <span className="price-style" style={{ fontSize: '16px' }}>{priceLabel}</span>
+            <span className="meta-style" style={{ fontSize: '10px', textTransform: 'uppercase' }}>Pricing</span>
+            <span style={{ fontSize: '13.5px', fontWeight: 800, color: 'var(--color-navy)' }}>On Request</span>
           </div>
           <Button 
             variant="primary" 

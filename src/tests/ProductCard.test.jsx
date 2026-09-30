@@ -46,10 +46,11 @@ describe('ProductCard', () => {
       />
     );
 
-    // Assert name, brand, price and other details render
+    // Assert name, brand, quote status and other details render
     expect(screen.getByText('HD Dome Camera')).toBeDefined();
     expect(screen.getByText('Hikvision')).toBeDefined();
-    expect(screen.getByText(/2,999/)).toBeDefined();
+    expect(screen.getByText(/Quote on Request/i)).toBeDefined();
+    expect(screen.queryByText(/2,999/)).toBeNull();
     expect(screen.getByText('In Stock')).toBeDefined();
 
     // Assert wishlist button is rendered

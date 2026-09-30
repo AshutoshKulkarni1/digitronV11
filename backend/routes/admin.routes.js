@@ -18,11 +18,12 @@ const {
   findProductByIdentifier,
   mapProduct
 } = require('../utils/helpers');
+const { getJwtSecret, getAdminCredentials, IS_PRODUCTION } = require('../config/env');
 
 const logger = require('../utils/logger');
 
 const router = express.Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+const DUMMY_HASH = '$2b$10$abcdefghijklmnopqrstuvwxyz01234567890123456789012345678';
 
 // Zod Validation Schemas
 const adminLoginSchema = z.object({
@@ -91,28 +92,27 @@ const adminProductUpdateSchema = z.object({
 // Admin Authentication Routes
 router.post('/login', adminLoginLimiter, validate(adminLoginSchema), async (req, res) => {
   const { username, password } = req.body;
-  const expectedUsername = process.env.ADMIN_USERNAME || 'admin';
-  const expectedPasswordHash = process.env.ADMIN_PASSWORD_HASH;
+  const { username: expectedUsername, passwordHash: expectedPasswordHash } = getAdminCredentials();
 
   if (!expectedPasswordHash) {
     logger.error('ADMIN_PASSWORD_HASH is not set in backend/.env');
     return res.status(500).json({ error: 'Server authentication is misconfigured' });
   }
 
-  if (username !== expectedUsername) {
-    return res.status(401).json({ error: 'Invalid credentials' });
-  }
+  // Defend against timing attacks: perform bcrypt compare with constant timing
+  const isUsernameMatch = username === expectedUsername;
+  const targetHash = isUsernameMatch ? expectedPasswordHash : DUMMY_HASH;
 
   try {
-    const match = await bcrypt.compare(password, expectedPasswordHash);
-    if (!match) {
+    const match = await bcrypt.compare(password, targetHash);
+    if (!match || !isUsernameMatch) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ user: 'admin' }, JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ user: 'admin' }, getJwtSecret(), { expiresIn: '1d' });
     res.cookie('ae_admin_token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: IS_PRODUCTION,
       sameSite: 'lax',
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
@@ -130,7 +130,7 @@ router.get('/me', authenticateAdmin, (req, res) => {
 router.post('/logout', (req, res) => {
   res.clearCookie('ae_admin_token', {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: IS_PRODUCTION,
     sameSite: 'lax',
   });
   res.json({ message: 'Logged out successfully' });
