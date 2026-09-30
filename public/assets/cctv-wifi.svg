@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+<defs>
+<radialGradient id="head" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".6" stop-color="#EDF1F6"></stop><stop offset="1" stop-color="#AEBBCB"></stop></radialGradient>
+<linearGradient id="base" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#BAC6D4"></stop><stop offset=".4" stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#C9D3DF"></stop></linearGradient>
+<radialGradient id="face" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#2A3A54"></stop><stop offset="1" stop-color="#05080E"></stop></radialGradient>
+</defs>
+<ellipse cx="200" cy="350" rx="110" ry="16" fill="#0B1F3A" opacity=".16"></ellipse>
+<path d="M112 250h176l-12 90H124z" fill="url(#base)"></path>
+<ellipse cx="200" cy="340" rx="76" ry="10" fill="#A9B6C6"></ellipse>
+<ellipse cx="200" cy="250" rx="88" ry="16" fill="#F7F9FC"></ellipse>
+<circle cx="200" cy="160" r="104" fill="url(#head)"></circle>
+<circle cx="200" cy="164" r="70" fill="url(#face)"></circle>
+<circle cx="200" cy="150" r="24" fill="#0A0F18"></circle>
+<circle cx="200" cy="150" r="14" fill="#2C4468"></circle>
+<circle cx="194" cy="144" r="5" fill="#FFFFFF" opacity=".7"></circle>
+<circle cx="170" cy="198" r="4" fill="#3FB984"></circle>
+<circle cx="230" cy="198" r="3" fill="#5B6E88"></circle>
+<ellipse cx="150" cy="90" rx="30" ry="13" fill="#FFFFFF" opacity=".75" transform="rotate(-32 150 90)"></ellipse>
+</svg>

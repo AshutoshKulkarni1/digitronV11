@@ -1,0 +1,180 @@
+:root {
+  /* SIGNAL BLUE & WHITE DESIGN SYSTEM (DIGITRON BRAND) */
+  --brand: #1A6FD6;
+  --brand-hover: #1558AC;
+  --brand-active: #0F4588;
+  --brand-light: #EAF3FD;
+  --brand-tint: #D6E8FB;
+
+  /* PALETTE TOKENS FROM SIGNBOARD & STYLE GUIDE */
+  --color-white: #FFFFFF;
+  --color-mist: #F3F8FE;
+  --color-ice: #EAF3FD;
+  --color-sky: #D6E8FB;
+  --color-powder: #B9D8F7;
+  --color-border-soft: #E3EDF8;
+  --color-border-card: #C9DDF5;
+  --color-glow: #7ABEFF;
+  --color-glow-light: #9CC7F4;
+
+  --color-navy: #0B1F3A;
+  --color-navy-deep: #071527;
+  --color-navy-surface: #13305A;
+  --color-slate-dark: #33465F;
+  --color-slate: #51627A;
+  --color-slate-light: #8FA3BD;
+  --color-slate-pale: #B7CBE4;
+
+  --color-red: #E5484D;
+  --color-red-hover: #CC3E43;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #1DA851;
+  --color-success: #10B981;
+  --color-success-bg: #E6F9F0;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FEF3C7;
+  --color-danger: #E5484D;
+  --color-danger-bg: #FEE2E2;
+
+  /* SYSTEM MAPPINGS */
+  --color-ink: var(--color-navy);
+  --color-ink-soft: var(--color-slate-dark);
+  --color-muted: var(--color-slate);
+  --color-bg: var(--color-white);
+  --color-surface: var(--color-white);
+  --color-surface-alt: var(--color-ice);
+  --color-border: var(--color-border-soft);
+  --color-border-strong: var(--color-border-card);
+
+  /* TYPOGRAPHY TOKENS */
+  --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-kannada: 'Noto Sans Kannada', sans-serif;
+
+  /* SPACING SCALE */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* RADII */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-button: 999px;
+  --radius-input: 999px;
+  --radius-card: 28px;
+  --radius-card-lg: 36px;
+  --radius-card-xl: 44px;
+  --radius-pill: 999px;
+
+  /* SHADOWS */
+  --shadow-sm: 0 2px 8px rgba(11, 31, 58, 0.04);
+  --shadow-md: 0 10px 24px -10px rgba(11, 31, 58, 0.08);
+  --shadow-lg: 0 20px 40px -15px rgba(11, 31, 58, 0.12);
+  --shadow-btn: 0 16px 32px -14px rgba(26, 111, 214, 0.65);
+  --shadow-wa: 0 16px 30px -12px rgba(37, 211, 102, 0.45);
+
+  /* TRANSITIONS */
+  --transition: all 0.25s cubic-bezier(0.16, 0.84, 0.3, 1);
+  --transition-fast: all 0.15s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 0.84, 0.3, 1);
+
+  /* BACKWARD COMPATIBILITY ALIASES */
+  --obsidian: var(--color-navy);
+  --near-black: var(--color-navy);
+  --dark-gray: var(--color-slate-dark);
+  --mid-gray: var(--color-slate);
+  --light-gray: var(--color-border-soft);
+  --off-white: var(--color-ice);
+  --white: var(--color-white);
+  --gold: var(--brand);
+  --gold-dark: var(--brand-hover);
+  --gold-light: var(--color-glow-light);
+  --gold-tint: var(--brand-light);
+  --gold-glow: rgba(26, 111, 214, 0.25);
+  --whatsapp: var(--color-whatsapp);
+  --whatsapp-dark: var(--color-whatsapp-dark);
+}
+
+/* TYPOGRAPHY CLASSES */
+.h {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+
+.kn {
+  font-family: var(--font-kannada);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.h1-style {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--color-navy);
+}
+
+.h2-style {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
+}
+
+.h3-style {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.body-style {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-slate-dark);
+}
+
+.meta-style {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-slate);
+}
+
+.price-style {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-navy);
+}
+
+.price-style-hero {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--brand);
+}
+
+.button-label-style {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+}

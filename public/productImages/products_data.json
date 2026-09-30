@@ -1,0 +1,112 @@
+[
+  {
+    "id": "cp_plus_round",
+    "name": "CP Plus Round Dome Camera",
+    "spec": "4MP Full HD Dome \u00b7 IR Night Vision \u00b7 Indoor/Outdoor",
+    "category": "Dome Cameras",
+    "image": "./cp plus round.png",
+    "tag": "BESTSELLER",
+    "tagBg": "#0B1F3A",
+    "reviews": 142
+  },
+  {
+    "id": "cp_plus_square",
+    "name": "CP Plus Square Bullet Camera",
+    "spec": "2MP IP67 Weatherproof Bullet \u00b7 30m IR Night Vision",
+    "category": "Bullet Cameras",
+    "image": "./cp plus square.png",
+    "tag": "POPULAR",
+    "tagBg": "#1A6FD6",
+    "reviews": 98
+  },
+  {
+    "id": "ezykam_dome",
+    "name": "CP Plus Ezykam+ Dome Wi-Fi Camera",
+    "spec": "360\u00b0 Smart Pan-Tilt \u00b7 Motion Tracking \u00b7 2-Way Audio",
+    "category": "Wi-Fi & Solar",
+    "image": "./ezykam+.png",
+    "tag": "HOT",
+    "tagBg": "#E5484D",
+    "reviews": 116
+  },
+  {
+    "id": "ezykam_square",
+    "name": "CP Plus Ezykam+ Outdoor Wi-Fi Camera",
+    "spec": "Outdoor Bullet Wi-Fi Camera \u00b7 AI Human Detection",
+    "category": "Wi-Fi & Solar",
+    "image": "./ezykam+ square.png",
+    "tag": "NEW",
+    "tagBg": "#1A6FD6",
+    "reviews": 84
+  },
+  {
+    "id": "trueview_round",
+    "name": "Trueview Round Dome Camera",
+    "spec": "4K Full Color Night Vision \u00b7 Metal Vandal Dome",
+    "category": "Dome Cameras",
+    "image": "./trueview round.png",
+    "tag": "TOP RATED",
+    "tagBg": "#0B1F3A",
+    "reviews": 165
+  },
+  {
+    "id": "multi_power_solar",
+    "name": "Multi-Power Solar 4G CCTV Camera",
+    "spec": "Solar Panel Powered \u00b7 4G SIM / Wi-Fi \u00b7 100% Wire-Free",
+    "category": "Wi-Fi & Solar",
+    "image": "./multi power solar.png",
+    "tag": "SOLAR",
+    "tagBg": "#2E7D32",
+    "reviews": 75
+  },
+  {
+    "id": "secureeye",
+    "name": "Secureye HD Security Camera",
+    "spec": "High Definition Surveillance \u00b7 Smart Array IR LED",
+    "category": "Bullet Cameras",
+    "image": "./secureeye.png",
+    "tag": "PRO",
+    "tagBg": "#0B1F3A",
+    "reviews": 92
+  },
+  {
+    "id": "voltaic",
+    "name": "Voltaic Smart Security Camera",
+    "spec": "Smart HD Surveillance \u00b7 Weatherproof Metal Casing",
+    "category": "Bullet Cameras",
+    "image": "./voltaic.png",
+    "tag": "SMART",
+    "tagBg": "#1A6FD6",
+    "reviews": 68
+  },
+  {
+    "id": "wd_500gb",
+    "name": "WD 500GB Surveillance Hard Drive",
+    "spec": "500GB 3.5\u2033 SATA \u00b7 24/7 Continuous CCTV Storage",
+    "category": "Storage & Drives",
+    "image": "./500gb wd.png",
+    "tag": "STORAGE",
+    "tagBg": "#0B1F3A",
+    "reviews": 210
+  },
+  {
+    "id": "securus_switch",
+    "name": "Securus PoE Network Switch",
+    "spec": "Fast Ethernet PoE Switch \u00b7 Power & Data for IP Cameras",
+    "category": "Accessories & PoE",
+    "image": "./securus switch thing.png",
+    "tag": "NETWORKING",
+    "tagBg": "#1A6FD6",
+    "reviews": 54
+  },
+  {
+    "id": "securus_cables",
+    "name": "Securus 3+1 CCTV Cable Roll",
+    "spec": "Heavy Duty Copper Coaxial Wire Roll for CCTV Kits",
+    "category": "Accessories & PoE",
+    "image": "./securus cables.png",
+    "tag": "ACCESSORY",
+    "tagBg": "#51627A",
+    "reviews": 88
+  }
+]

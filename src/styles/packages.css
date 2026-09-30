@@ -1,0 +1,125 @@
+/* ==========================================================================
+   DIGITRON PACKAGES / BUNDLES STYLES
+   Signal Blue & Navy Card Architecture
+   ========================================================================== */
+
+.bundles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: 32px;
+}
+
+.bundle-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s cubic-bezier(0.16, 0.84, 0.3, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+}
+
+.bundle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 36px -12px rgba(11, 31, 58, 0.12);
+  border-color: var(--brand);
+}
+
+.bundle-card-header {
+  background: var(--color-navy);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.bundle-card-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bundle-name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.bundle-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.bundle-body {
+  padding: 32px;
+}
+
+.bundle-components-title {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.bundle-component-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-ice);
+  color: var(--color-navy);
+}
+
+.bundle-qty {
+  background: var(--color-ice);
+  color: var(--brand);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-soft);
+}
+
+.bundle-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 28px 0 24px;
+}
+
+.bundle-price {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  color: var(--color-navy);
+}
+
+.bundle-original {
+  font-size: 16px;
+  color: var(--color-slate-light);
+  text-decoration: line-through;
+}
+
+.bundle-save {
+  background: var(--color-ice);
+  color: var(--brand);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-soft);
+}

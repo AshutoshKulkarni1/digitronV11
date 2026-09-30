@@ -1,0 +1,563 @@
+/* ==========================================================================
+   DIGITRON NAVBAR STYLES
+   Signal Blue & White Aesthetic with Multi-Tier Announcements
+   ========================================================================== */
+
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--color-white);
+  box-shadow: 0 2px 12px rgba(11, 31, 58, 0.05);
+}
+
+/* Tier 1: Dark Navy Announcement Marquee */
+.nav-announcement-top {
+  height: 42px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.nav-announcement-top .marq {
+  gap: 56px;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding-left: 56px;
+  white-space: nowrap;
+}
+
+.nav-announcement-top .marq-item {
+  display: inline-flex;
+  gap: 56px;
+  align-items: center;
+}
+
+.nav-announcement-top .sparkle {
+  color: var(--color-glow);
+  font-size: 14px;
+}
+
+/* Tier 2: Signal Blue Promo Bar */
+.nav-promo-bar {
+  height: 38px;
+  background: var(--brand);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.nav-promo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-white);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.nav-promo-bar a {
+  color: var(--color-white);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.nav-promo-bar a:hover {
+  opacity: 0.9;
+}
+
+/* Tier 3: Main Navigation Header */
+.navbar {
+  height: 84px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border-soft);
+  transition: var(--transition);
+}
+
+@media (min-width: 1400px) {
+  .navbar {
+    padding: 0 64px;
+  }
+}
+
+/* Brand Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-logo-mark {
+  width: 44px;
+  height: 40px;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 0.84, 0.3, 1);
+}
+
+.nav-logo:hover .nav-logo-mark {
+  transform: scale(1.06);
+}
+
+.nav-logo-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-logo-brand {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+  line-height: 1.1;
+}
+
+.nav-logo-sub {
+  font-family: var(--font-kannada);
+  font-size: 11px;
+  color: var(--color-slate);
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* Nav Menu Links */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 1300px) {
+  .nav-links {
+    gap: 36px;
+  }
+}
+
+.nav-link {
+  color: var(--color-navy);
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--brand);
+}
+
+.nav-link.active {
+  color: var(--brand);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--brand);
+  border-radius: 2px;
+}
+
+/* Nav Actions Container */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icon Buttons (Search, Cart) */
+.nav-icon-circle-btn {
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-ice);
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon-circle-btn:hover {
+  background: var(--color-sky);
+  color: var(--brand);
+  transform: translateY(-2px);
+}
+
+.nav-icon-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-white);
+}
+
+/* Global Search Overlay Dropdown */
+.nav-search-container {
+  position: relative;
+}
+
+.global-search-input-wrap {
+  position: absolute;
+  right: 0;
+  top: 54px;
+  width: 340px;
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 16px 40px -10px rgba(11, 31, 58, 0.2);
+  border: 1px solid var(--color-border-soft);
+  z-index: 100;
+  animation: pop 0.25s ease forwards;
+}
+
+.nav-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-ice);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.nav-search-box input {
+  flex-grow: 1;
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: var(--color-navy);
+}
+
+.global-search-results {
+  max-height: 280px;
+  overflow-y: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.search-item:hover {
+  background: var(--color-ice);
+}
+
+.search-item strong {
+  font-size: 13.5px;
+  color: var(--color-navy);
+  display: block;
+}
+
+.search-item small {
+  font-size: 11.5px;
+  color: var(--color-slate);
+}
+
+.search-item em {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand);
+  font-style: normal;
+}
+
+/* User Profile Menu */
+.nav-profile {
+  position: relative;
+}
+
+.nav-avatar-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-soft);
+  overflow: hidden;
+  background: var(--color-ice);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.nav-avatar-btn:hover {
+  border-color: var(--brand);
+}
+
+.nav-avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-avatar-initial {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.nav-profile-menu {
+  position: absolute;
+  top: 54px;
+  right: 0;
+  width: 190px;
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 16px 36px -8px rgba(11, 31, 58, 0.16);
+  border: 1px solid var(--color-border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 100;
+}
+
+.nav-profile-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--color-navy);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.nav-profile-menu button:hover {
+  background: var(--color-ice);
+  color: var(--brand);
+}
+
+/* Login Button */
+.btn-login-pill {
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--color-ice);
+  color: var(--color-navy);
+  border: 1px solid var(--color-border-soft);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-login-pill:hover {
+  background: var(--color-sky);
+  color: var(--brand);
+}
+
+.google-mark {
+  font-weight: 800;
+  color: var(--brand);
+}
+
+/* Shop Now Pill CTA */
+.btn-shop-now {
+  height: 48px;
+  padding: 0 24px;
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--brand);
+  color: var(--color-white);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+}
+
+/* Mobile Hamburger Button */
+.nav-hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-ice);
+  color: var(--color-navy);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-hamburger:hover {
+  background: var(--color-sky);
+}
+
+/* Mobile Drawer */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 31, 58, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1001;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  background: var(--color-white);
+  z-index: 1002;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: -10px 0 30px rgba(11, 31, 58, 0.15);
+  transition: right 0.35s cubic-bezier(0.16, 0.84, 0.3, 1);
+  overflow-y: auto;
+}
+
+.mobile-menu--open {
+  right: 0;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-navy);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link--active {
+  background: var(--color-ice);
+  color: var(--brand);
+}
+
+.mobile-link-badge {
+  margin-left: auto;
+  background: var(--brand);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .btn-shop-now {
+    display: none;
+  }
+
+  .navbar {
+    height: 68px;
+    padding: 0 18px;
+  }
+
+  .nav-logo-mark {
+    width: 36px;
+    height: 33px;
+  }
+
+  .nav-logo-brand {
+    font-size: 19px;
+  }
+
+  .nav-announcement-top {
+    height: 36px;
+  }
+
+  .nav-announcement-top .marq {
+    gap: 36px;
+    font-size: 12.5px;
+  }
+}

@@ -1,0 +1,301 @@
+/* ==========================================================================
+   DIGITRON MOTION & ANIMATION SYSTEM
+   Extracted & Refined from UI Design
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-12deg);
+  }
+  70% {
+    transform: scale(1.06) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(40px) scale(0.94);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(-2deg);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(3deg);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marq {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: -2px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes loaderOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* Animation Classes */
+.rise {
+  animation: rise 1.1s cubic-bezier(0.16, 0.84, 0.3, 1) both;
+}
+
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.22s; }
+.d3 { animation-delay: 0.34s; }
+.d4 { animation-delay: 0.46s; }
+.d5 { animation-delay: 0.58s; }
+
+.reveal {
+  animation: reveal 1.3s cubic-bezier(0.16, 0.84, 0.3, 1) 0.3s both;
+}
+
+.pop {
+  animation: pop 0.9s cubic-bezier(0.16, 0.84, 0.3, 1) 0.6s both;
+}
+
+.fl {
+  animation: float 7s ease-in-out infinite;
+}
+
+.fl2 {
+  animation: float2 6s ease-in-out -2s infinite;
+}
+
+.fl3 {
+  animation: float3 5s ease-in-out -1s infinite;
+}
+
+.spin {
+  animation: spin 18s linear infinite;
+}
+
+.marq {
+  display: flex;
+  width: max-content;
+  animation: marq 28s linear infinite;
+}
+
+.marq-slow {
+  display: flex;
+  width: max-content;
+  animation: marq 50s linear infinite;
+}
+
+.marq-rev {
+  display: flex;
+  width: max-content;
+  animation: marqR 50s linear infinite;
+}
+
+.marq:hover,
+.marq-slow:hover,
+.marq-rev:hover {
+  animation-play-state: paused;
+}
+
+.ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: ping 1.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.blink {
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+.loader {
+  animation: loaderOut 0.7s ease 1.7s forwards;
+}
+
+.loadbar {
+  animation: bar 1.5s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+}
+
+/* CCTV Live Feed Simulator */
+.feed {
+  background-color: #0D2140;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(122, 190, 255, 0.85);
+  box-shadow: 0 0 22px 6px rgba(122, 190, 255, 0.4);
+  animation: scan 3.4s linear infinite;
+}
+
+/* Micro-Interactions */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 0.84, 0.3, 1), box-shadow 0.3s ease, background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -14px rgba(26, 111, 214, 0.65);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.prod {
+  transition: transform 0.3s ease;
+}
+
+.prod .pimg {
+  transition: transform 0.7s cubic-bezier(0.16, 0.84, 0.3, 1);
+}
+
+.prod:hover .pimg {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.prod .quick {
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.16, 0.84, 0.3, 1), opacity 0.3s;
+}
+
+.prod:hover .quick {
+  transform: none;
+  opacity: 1;
+}
+
+.cat .cimg {
+  transition: transform 0.6s cubic-bezier(0.16, 0.84, 0.3, 1);
+}
+
+.cat:hover .cimg {
+  transform: translateY(-10px) scale(1.08);
+}
+
+.vp .vimg {
+  transition: transform 0.9s cubic-bezier(0.16, 0.84, 0.3, 1);
+}
+
+.vp:hover .vimg {
+  transform: scale(1.05);
+}

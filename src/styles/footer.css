@@ -1,0 +1,141 @@
+/* ==========================================================================
+   DIGITRON FOOTER STYLES
+   Signal Blue & Navy Aesthetic
+   ========================================================================== */
+
+.footer-container {
+  margin-top: 48px;
+  padding: 80px 48px 40px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 1400px) {
+  .footer-container {
+    padding: 90px 64px 40px;
+  }
+}
+
+.footer-top-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.footer-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 380px;
+}
+
+.footer-headline {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-white);
+}
+
+.footer-address {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-slate-pale);
+}
+
+.footer-phone-link {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-glow);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-phone-link:hover {
+  opacity: 0.85;
+}
+
+.footer-links-columns {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1200px) {
+  .footer-links-columns {
+    gap: 90px;
+  }
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-col-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--color-glow);
+  text-transform: uppercase;
+}
+
+.footer-nav-link {
+  color: #DDEBFC;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+  color: var(--color-glow);
+}
+
+/* Giant Watermark */
+.footer-watermark {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 15vw, 216px);
+  line-height: 0.8;
+  font-weight: 800;
+  color: var(--color-navy-surface);
+  letter-spacing: -0.05em;
+  user-select: none;
+  margin: 20px 0;
+  white-space: nowrap;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--color-slate-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 48px 20px 32px;
+    gap: 40px;
+  }
+
+  .footer-links-columns {
+    gap: 36px;
+  }
+
+  .footer-phone-link {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,258 @@
+/* ==========================================================================
+   DIGITRON PRODUCT CARD STYLES
+   Signal Blue & White Modern Card Architecture
+   ========================================================================== */
+
+/* Product Card action items */
+.card-wishlist-btn {
+  position: absolute;
+  top: 52px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-navy);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  z-index: 5;
+}
+
+.card-wishlist-btn:hover {
+  transform: scale(1.1);
+  color: var(--color-red);
+}
+
+.card-wishlist-btn.selected,
+.icon-soft-btn.selected {
+  background: var(--color-red);
+  color: #FFFFFF;
+  border-color: var(--color-red);
+}
+
+.btn-cart-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-cart-card:hover {
+  background: var(--brand-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -6px rgba(26, 111, 214, 0.5);
+}
+
+.login-review-gate {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--color-ice);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.login-review-gate strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.login-review-gate p {
+  color: var(--color-slate);
+  font-size: 13.5px;
+}
+
+/* Product Card Container */
+.product-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 0.84, 0.3, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.product-card:hover {
+  box-shadow: 0 20px 36px -12px rgba(11, 31, 58, 0.12);
+  transform: translateY(-6px);
+  border-color: var(--brand);
+}
+
+.card-img-wrap {
+  position: relative;
+  background: var(--color-ice);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background 0.25s ease;
+}
+
+.product-card:hover .card-img-wrap {
+  background: var(--color-sky);
+}
+
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+  transition: transform 0.6s cubic-bezier(0.16, 0.84, 0.3, 1);
+}
+
+.product-card:hover .product-card-img {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.card-img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-slate);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.card-brand-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-navy);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.card-compare-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--color-navy);
+  z-index: 5;
+}
+
+.card-compare-btn:hover {
+  background: var(--color-navy);
+  color: #FFFFFF;
+  border-color: var(--color-navy);
+  transform: rotate(90deg);
+}
+
+.card-compare-btn.selected {
+  background: var(--brand);
+  color: #FFFFFF;
+  border-color: var(--brand);
+}
+
+.card-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
+}
+
+.card-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-navy);
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+.product-card:hover .card-name {
+  color: var(--brand);
+}
+
+.card-category {
+  font-size: 13px;
+  color: var(--color-slate);
+  font-weight: 500;
+}
+
+.card-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.card-price {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-navy);
+}
+
+.card-meta-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--color-ice);
+  color: var(--color-slate-dark);
+}
+
+/* Ensure product cards in horizontal scroll containers never get squished into tiny cluttered frames */
+.scroll-strip > .product-card,
+.scroll-strip > div > .product-card,
+.similar-products-track > div > .product-card,
+.similar-product-card-wrap > .product-card {
+  min-width: 270px;
+  width: 100%;
+  flex-shrink: 0;
+}
