@@ -61,7 +61,11 @@ app.use(cors({
     // Allow non-browser requests (server-to-server, curl, tests)
     if (!origin) return callback(null, true);
 
-    if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+    if (
+      allowedOrigins.includes(origin) ||
+      allowedOrigins.includes('*') ||
+      /\.vercel\.app$/i.test(origin)
+    ) {
       return callback(null, true);
     }
 
@@ -183,13 +187,23 @@ initializePersistence();
 
 // Health Check Route
 app.get('/api/health', async (req, res) => {
+  const envStatus = {
+    isVercel: Boolean(process.env.VERCEL),
+    nodeEnv: process.env.NODE_ENV || 'development',
+    googleAuth: GOOGLE_AUTH_CONFIGURED ? 'configured' : 'missing credentials',
+    emailService: process.env.EMAIL_USER && process.env.EMAIL_PASS ? 'configured' : 'unconfigured',
+    jwtSecret: process.env.JWT_SECRET ? 'configured' : 'ephemeral_fallback',
+    sessionSecret: process.env.SESSION_SECRET ? 'configured' : 'ephemeral_fallback',
+    adminConfigured: Boolean(process.env.ADMIN_PASSWORD_HASH)
+  };
+
   try {
     if (isPlaceholderMongoUri(process.env.MONGODB_URI)) {
       return res.json({
         ok: true,
         database: 'unconfigured_local_mode',
         message: 'Backend is running with local catalog and JSON persistence.',
-        googleAuth: GOOGLE_AUTH_CONFIGURED ? 'configured' : 'missing credentials'
+        ...envStatus
       });
     }
     await withTimeout(
@@ -200,7 +214,7 @@ app.get('/api/health', async (req, res) => {
     res.json({
       ok: true,
       database: 'connected',
-      googleAuth: GOOGLE_AUTH_CONFIGURED ? 'configured' : 'missing credentials'
+      ...envStatus
     });
   } catch (error) {
     logRouteError('Health check database unreachable', error);
@@ -208,7 +222,7 @@ app.get('/api/health', async (req, res) => {
       ok: true,
       database: 'unreachable_using_fallback',
       error: error.message,
-      googleAuth: GOOGLE_AUTH_CONFIGURED ? 'configured' : 'missing credentials'
+      ...envStatus
     });
   }
 });

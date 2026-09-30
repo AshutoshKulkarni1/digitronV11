@@ -50,25 +50,19 @@ function getJwtSecret() {
 
   const isInsecure = !envSecret || INSECURE_JWT_PLACEHOLDERS.includes(envSecret);
 
-  if (IS_PRODUCTION) {
-    if (isInsecure) {
-      const errorMsg = '[CRITICAL SECURITY] In production, JWT_SECRET must be set to a strong unique secret (min 32 chars) and cannot use default placeholders!';
-      console.error(errorMsg);
-      throw new Error(errorMsg);
+  if (isInsecure) {
+    if (IS_PRODUCTION) {
+      console.error('[CRITICAL SECURITY WARNING] JWT_SECRET is unset or using a placeholder in production! Add a strong JWT_SECRET in your Vercel Environment Variables.');
+    } else {
+      console.warn('[SECURITY NOTICE] JWT_SECRET is unset or using a weak default. Generated an ephemeral in-memory secret for this session. Set JWT_SECRET in backend/.env for persistent admin logins.');
     }
-    return envSecret;
+    if (!devGeneratedJwtSecret) {
+      devGeneratedJwtSecret = crypto.randomBytes(32).toString('hex');
+    }
+    return devGeneratedJwtSecret;
   }
 
-  // Development mode fallback: use envSecret if set and not an insecure placeholder, otherwise use a secure random runtime secret
-  if (envSecret && !INSECURE_JWT_PLACEHOLDERS.includes(envSecret)) {
-    return envSecret;
-  }
-
-  if (!devGeneratedJwtSecret) {
-    devGeneratedJwtSecret = crypto.randomBytes(32).toString('hex');
-    console.warn('[SECURITY NOTICE] JWT_SECRET is unset or using a weak default. Generated an ephemeral in-memory secret for this session. Set JWT_SECRET in backend/.env for persistent admin logins.');
-  }
-  return devGeneratedJwtSecret;
+  return envSecret;
 }
 
 function getSessionSecret() {
@@ -80,24 +74,19 @@ function getSessionSecret() {
 
   const isInsecure = !envSecret || INSECURE_SESSION_PLACEHOLDERS.includes(envSecret);
 
-  if (IS_PRODUCTION) {
-    if (isInsecure) {
-      const errorMsg = '[CRITICAL SECURITY] In production, SESSION_SECRET must be set to a strong random string (min 32 chars) and cannot use default placeholders!';
-      console.error(errorMsg);
-      throw new Error(errorMsg);
+  if (isInsecure) {
+    if (IS_PRODUCTION) {
+      console.error('[CRITICAL SECURITY WARNING] SESSION_SECRET is unset or using a placeholder in production! Add a strong SESSION_SECRET in your Vercel Environment Variables.');
+    } else {
+      console.warn('[SECURITY NOTICE] SESSION_SECRET is unset or using a weak default. Generated an ephemeral in-memory secret for this session. Set SESSION_SECRET in backend/.env.');
     }
-    return envSecret;
+    if (!devGeneratedSessionSecret) {
+      devGeneratedSessionSecret = crypto.randomBytes(32).toString('hex');
+    }
+    return devGeneratedSessionSecret;
   }
 
-  if (envSecret && !INSECURE_SESSION_PLACEHOLDERS.includes(envSecret)) {
-    return envSecret;
-  }
-
-  if (!devGeneratedSessionSecret) {
-    devGeneratedSessionSecret = crypto.randomBytes(32).toString('hex');
-    console.warn('[SECURITY NOTICE] SESSION_SECRET is unset or using a weak default. Generated an ephemeral in-memory secret for this session. Set SESSION_SECRET in backend/.env.');
-  }
-  return devGeneratedSessionSecret;
+  return envSecret;
 }
 
 // Origin resolution
