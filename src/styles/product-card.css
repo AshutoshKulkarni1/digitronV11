@@ -256,3 +256,50 @@
   width: 100%;
   flex-shrink: 0;
 }
+
+
+/* ==========================================================================
+   PRODUCT CARD MOBILE OPTIMIZATION (< 640px)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .product-card {
+    border-radius: 18px;
+  }
+
+  .card-img-wrap {
+    height: 160px;
+  }
+
+  .product-card-img {
+    padding: 14px;
+  }
+
+  .card-body {
+    padding: 14px 12px;
+    gap: 6px;
+  }
+
+  .card-name {
+    font-size: 15px;
+  }
+
+  .card-category {
+    font-size: 12px;
+  }
+
+  .card-price {
+    font-size: 18px;
+  }
+
+  .btn-cart-card {
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+
+  .scroll-strip > .product-card,
+  .scroll-strip > div > .product-card,
+  .similar-products-track > div > .product-card,
+  .similar-product-card-wrap > .product-card {
+    min-width: 220px;
+  }
+}

@@ -824,83 +824,66 @@ export default function HomePage() {
         </div>
 
         {/* Central Bullet Graphic with radar pins */}
-        <div style={{ position: "relative", width: "100%", height: 500, margin: "40px 0" }}>
-          <div
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: "50%",
-              width: 500,
-              height: 500,
-              margin: "-250px 0 0 -250px",
-              borderRadius: "50%",
-              background: "#13305A",
-            }}
-          />
+        <div className="hotspots-diagram-stage">
+          <div className="hotspots-circle-bg" />
           <img
             src="/assets/cctv-bullet.svg"
             alt="Bullet camera model"
-            className="fl"
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: "50%",
-              width: 520,
-              height: 520,
-              margin: "-260px 0 0 -260px",
-            }}
+            className="fl hotspots-bullet-img"
           />
 
-          {/* Hotspot 1 */}
-          <div className="hotspot-item" style={{ position: "absolute", left: "62%", top: "15%" }}>
-            <div className="hotspot-pin">
-              <span className="ping" style={{ background: "#7ABEFF" }} />
-              <div className="hotspot-pin-core" />
+          <div className="hotspots-items-container">
+            {/* Hotspot 1 */}
+            <div className="hotspot-item hotspot-item-1">
+              <div className="hotspot-pin">
+                <span className="ping" style={{ background: "#7ABEFF" }} />
+                <div className="hotspot-pin-core" />
+              </div>
+              <div>
+                <span className="h hotspot-title">Smart IR LEDs</span>
+                <span className="hotspot-desc">30m clear night range</span>
+              </div>
             </div>
-            <div>
-              <span className="h" style={{ fontSize: 20, fontWeight: 800, color: "#FFFFFF", display: "block" }}>Smart IR LEDs</span>
-              <span style={{ fontSize: 13, color: "#B7CBE4" }}>30m clear night range</span>
-            </div>
-          </div>
 
-          {/* Hotspot 2 */}
-          <div className="hotspot-item" style={{ position: "absolute", left: "68%", top: "45%" }}>
-            <div className="hotspot-pin">
-              <span className="ping" style={{ background: "#7ABEFF" }} />
-              <div className="hotspot-pin-core" />
+            {/* Hotspot 2 */}
+            <div className="hotspot-item hotspot-item-2">
+              <div className="hotspot-pin">
+                <span className="ping" style={{ background: "#7ABEFF" }} />
+                <div className="hotspot-pin-core" />
+              </div>
+              <div>
+                <span className="h hotspot-title">4K Sensor</span>
+                <span className="hotspot-desc">Sharp detail, readable vehicle plates</span>
+              </div>
             </div>
-            <div>
-              <span className="h" style={{ fontSize: 20, fontWeight: 800, color: "#FFFFFF", display: "block" }}>4K Sensor</span>
-              <span style={{ fontSize: 13, color: "#B7CBE4" }}>Sharp detail, readable vehicle plates</span>
-            </div>
-          </div>
 
-          {/* Hotspot 3 */}
-          <div className="hotspot-item" style={{ position: "absolute", left: "20%", top: "60%" }}>
-            <div className="hotspot-pin">
-              <span className="ping" style={{ background: "#7ABEFF" }} />
-              <div className="hotspot-pin-core" />
+            {/* Hotspot 3 */}
+            <div className="hotspot-item hotspot-item-3">
+              <div className="hotspot-pin">
+                <span className="ping" style={{ background: "#7ABEFF" }} />
+                <div className="hotspot-pin-core" />
+              </div>
+              <div>
+                <span className="h hotspot-title">IP67 Housing</span>
+                <span className="hotspot-desc">Rain, dust, corrosion & heat proof</span>
+              </div>
             </div>
-            <div>
-              <span className="h" style={{ fontSize: 20, fontWeight: 800, color: "#FFFFFF", display: "block" }}>IP67 Housing</span>
-              <span style={{ fontSize: 13, color: "#B7CBE4" }}>Rain, dust, corrosion & heat proof</span>
-            </div>
-          </div>
 
-          {/* Hotspot 4 */}
-          <div className="hotspot-item" style={{ position: "absolute", left: "15%", top: "25%" }}>
-            <div className="hotspot-pin">
-              <span className="ping" style={{ background: "#7ABEFF" }} />
-              <div className="hotspot-pin-core" />
-            </div>
-            <div>
-              <span className="h" style={{ fontSize: 20, fontWeight: 800, color: "#FFFFFF", display: "block" }}>Metal Bracket</span>
-              <span style={{ fontSize: 13, color: "#B7CBE4" }}>Tamper-resistant reinforced mount</span>
+            {/* Hotspot 4 */}
+            <div className="hotspot-item hotspot-item-4">
+              <div className="hotspot-pin">
+                <span className="ping" style={{ background: "#7ABEFF" }} />
+                <div className="hotspot-pin-core" />
+              </div>
+              <div>
+                <span className="h hotspot-title">Metal Bracket</span>
+                <span className="hotspot-desc">Tamper-resistant reinforced mount</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
+        <div className="hotspots-stats-row">
           <div>
             <span className="h" style={{ fontSize: 52, fontWeight: 800, color: "var(--color-glow)" }}>IP67</span>
             <span style={{ display: "block", fontSize: 14, color: "#B7CBE4" }}>Weatherproof Certified</span>
@@ -1017,27 +1000,11 @@ export default function HomePage() {
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <button
               type="button"
-              className="btn"
+              className="btn kit-quotation-cta-btn"
               onClick={() => handleGetKit(currentKit)}
-              style={{
-                flexGrow: 1,
-                height: 64,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "0 30px",
-                borderRadius: 999,
-                background: "#080B10",
-                color: "#FFFFFF",
-                fontSize: 17,
-                fontWeight: 800,
-                border: "1px solid rgba(255, 255, 255, 0.16)",
-                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.28)",
-                cursor: "pointer",
-              }}
             >
-              <span>Request Kit Quotation</span>
-              <span style={{ fontSize: 14, fontWeight: 600, color: "#E0EEFD" }}>
+              <span className="kit-quotation-cta-main">Request Kit Quotation</span>
+              <span className="kit-quotation-cta-sub">
                 Free Site Survey Included →
               </span>
             </button>

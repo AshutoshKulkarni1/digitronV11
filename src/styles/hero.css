@@ -1115,3 +1115,395 @@
     padding-left: 12px;
   }
 }
+
+
+/* Spec Hotspots Dynamic Container */
+.hotspots-diagram-stage {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: 40px 0;
+}
+
+.hotspots-circle-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 500px;
+  height: 500px;
+  margin: -250px 0 0 -250px;
+  border-radius: 50%;
+  background: #13305A;
+}
+
+.hotspots-bullet-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+}
+
+.hotspots-items-container {
+  position: absolute;
+  inset: 0;
+}
+
+.hotspot-item-1 { position: absolute; left: 62%; top: 15%; }
+.hotspot-item-2 { position: absolute; left: 68%; top: 45%; }
+.hotspot-item-3 { position: absolute; left: 20%; top: 60%; }
+.hotspot-item-4 { position: absolute; left: 15%; top: 25%; }
+
+.hotspot-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  display: block;
+}
+
+.hotspot-desc {
+  font-size: 13px;
+  color: #B7CBE4;
+}
+
+.hotspots-stats-row {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+/* Kit Quotation CTA Button */
+.kit-quotation-cta-btn {
+  flex-grow: 1;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: #080B10;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kit-quotation-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+}
+
+.kit-quotation-cta-main {
+  font-size: 17px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.kit-quotation-cta-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: #E0EEFD;
+}
+
+
+/* ==========================================================================
+   HERO & HOME SECTIONS MOBILE OVERHAUL (< 768px & < 480px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Hero Stage */
+  .hero-stage-section {
+    padding: 36px 16px 44px;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .hero-diagonal-stripe-1,
+  .hero-diagonal-stripe-2 {
+    display: none;
+  }
+
+  .hero-content-wrap {
+    gap: 18px;
+  }
+
+  .hero-h1-large {
+    font-size: clamp(30px, 8.5vw, 46px);
+    line-height: 1.04;
+  }
+
+  .hero-sub-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-hero-primary {
+    height: 52px;
+    padding: 0 24px;
+    font-size: 15px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn-hero-white {
+    height: 50px;
+    padding: 0 24px;
+    font-size: 14px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-rating-badge {
+    font-size: 13.5px;
+  }
+
+  /* Category Section */
+  .category-section-wrap {
+    padding: 44px 16px 24px;
+    gap: 28px;
+  }
+
+  .category-grid-7,
+  .category-grid-full {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px 8px !important;
+  }
+
+  .category-avatar-circle {
+    width: 82px !important;
+    height: 82px !important;
+  }
+
+  .category-title {
+    font-size: 12px !important;
+  }
+
+  /* Bestsellers Section */
+  .bestsellers-section-wrap {
+    padding: 48px 16px 60px;
+    gap: 28px;
+  }
+
+  .bestsellers-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+
+  .bestseller-card {
+    padding: 20px;
+  }
+
+  .bestseller-img-wrap {
+    height: 200px;
+  }
+
+  .bestseller-quick-btn {
+    transform: none !important;
+    opacity: 1 !important;
+    position: static !important;
+    width: 100% !important;
+    margin-top: 12px;
+    height: 44px;
+    border-radius: 999px;
+  }
+
+  /* Festive Deal Banner */
+  .festive-deal-banner {
+    padding: 44px 16px;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .festive-deal-content {
+    gap: 18px;
+  }
+
+  .festive-deal-h2 {
+    font-size: clamp(28px, 7.5vw, 42px);
+    line-height: 1.05;
+  }
+
+  .festive-countdown-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .countdown-box {
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
+  }
+
+  .countdown-digit {
+    font-size: 26px;
+  }
+
+  .countdown-label {
+    font-size: 9.5px;
+  }
+
+  /* Value Props Section */
+  .value-props-section {
+    padding: 50px 16px;
+    gap: 32px;
+  }
+
+  .value-props-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .vp-stage-wrap {
+    height: 260px;
+  }
+
+  /* Spec Hotspots Section */
+  .spec-hotspots-section {
+    padding: 50px 16px;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .hotspots-diagram-stage {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  .hotspots-circle-bg {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0;
+    width: 220px;
+    height: 220px;
+  }
+
+  .hotspots-bullet-img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -110px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .hotspots-items-container {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hotspot-item {
+    position: static !important;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .hotspot-title {
+    font-size: 14.5px !important;
+  }
+
+  .hotspot-desc {
+    font-size: 11.5px !important;
+  }
+
+  .hotspots-stats-row {
+    gap: 24px;
+  }
+
+  /* Kit Builder Section */
+  .kit-builder-section {
+    padding: 48px 16px;
+    gap: 32px;
+  }
+
+  .kit-builder-visual {
+    height: 260px;
+  }
+
+  .kit-selector-buttons {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .kit-pick-btn {
+    height: 74px;
+    border-radius: 14px;
+  }
+
+  .kit-pick-btn span.h {
+    font-size: 26px !important;
+  }
+
+  .kit-quotation-cta-btn {
+    height: auto;
+    min-height: 52px;
+    padding: 10px 16px;
+    flex-direction: column;
+    gap: 3px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .kit-quotation-cta-main {
+    font-size: 15.5px;
+  }
+
+  .kit-quotation-cta-sub {
+    font-size: 12px;
+  }
+
+  /* Reviews & Testimonials */
+  .reviews-section-wrap {
+    padding: 50px 0;
+    gap: 32px;
+  }
+
+  .review-card-item {
+    width: 280px;
+    padding: 20px;
+  }
+
+  /* FAQ Section */
+  .faq-section-wrap {
+    padding: 30px 16px 60px;
+    gap: 28px;
+  }
+
+  .faq-row {
+    padding: 18px 0;
+  }
+
+  .faq-toggle-btn span.h {
+    font-size: 17px !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .category-grid-7,
+  .category-grid-full {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px 10px !important;
+  }
+
+  .hotspots-items-container {
+    grid-template-columns: 1fr;
+  }
+}

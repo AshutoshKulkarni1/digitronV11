@@ -327,3 +327,57 @@
   padding: 4px 10px;
   font-size: 12px;
 }
+
+
+/* ==========================================================================
+   CART & CUSTOMER PAGES MOBILE RESPONSIVENESS (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .customer-page {
+    padding: 28px 16px 60px;
+  }
+
+  .customer-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cart-item {
+    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .cart-item-media {
+    height: 80px;
+  }
+
+  .cart-item-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-ice);
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+
+  .cart-summary {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

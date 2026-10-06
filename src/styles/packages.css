@@ -123,3 +123,30 @@
   border-radius: 999px;
   border: 1px solid var(--color-border-soft);
 }
+
+
+/* ==========================================================================
+   PACKAGES PAGE MOBILE RESPONSIVENESS (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .bundles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bundle-card-header {
+    padding: 24px 18px;
+  }
+
+  .bundle-body {
+    padding: 20px 18px;
+  }
+
+  .bundle-name {
+    font-size: 22px;
+  }
+
+  .bundle-price {
+    font-size: 28px;
+  }
+}
